@@ -4,8 +4,26 @@
 import osmnx as ox
 import networkx as nx
 import matplotlib.pyplot as plt
+import sys
 
-G = ox.graph_from_place('Ivry-sur-Seine, France', network_type='drive')
+
+
+pays = input("Entrez un pays: ")
+ville = input("Entrez une ville: ")
+quartier = input("Entrez un quartier ou rien: ")
+
+place = ville + ", " + pays
+if (quartier != ""):
+    place = quartier + ", " + place
+
+print("Vous avez choisis : " + place )
+
+try:
+    G = ox.graph_from_place(place, network_type='drive')
+except:
+    print( "Ce lieu n'existe pas !")
+    sys.exit(0)
+
 nodes = list(G.nodes)
 edges = list(G.edges(data=True))
 
@@ -13,10 +31,23 @@ edges_list = []
 for (x, y, info) in edges:
     edges_list.append((nodes.index(x), nodes.index(y), info["length"]))
 
+def print_graph(G):
+    options = {
+      'node_color' : 'red',
+      'node_size'  : 100,
+      'edge_color' : 'tab:grey',
+      'with_labels': True
+    }
+    plt.figure()
+    nx.draw(G, **options)
+    plt.show()
+
 def solvePractical(num_vertices, edge_list):
     G = nx.Graph()
     for u, v, w in edge_list:
         G.add_edge(u, v, weight=w)
+    
+    print_graph(G)
 
     if G.is_directed() and not nx.is_weakly_connected(G):
         raise nx.NetworkXError("G is not connected")
@@ -32,9 +63,6 @@ def solvePractical(num_vertices, edge_list):
         G = nx.algorithms.euler.eulerize(G)
         circuit = [i for i in nx.eulerian_circuit(G)]
     
-    print(G)
-    nx.draw(G)
-    plt.show()
     return num_vertices, circuit
 
-print(solvePractical(len(edges), edges_list))
+print("\nVoici l'odre des sommets à parcourir : \n", solvePractical(len(edges), edges_list))
