@@ -5,6 +5,7 @@ import osmnx as ox
 import networkx as nx
 import matplotlib.pyplot as plt
 import sys
+from print_graph import print_graph
 
 
 
@@ -30,17 +31,6 @@ edges = list(G.edges(data=True))
 edges_list = []
 for (x, y, info) in edges:
     edges_list.append((nodes.index(x), nodes.index(y), info["length"]))
-
-def print_graph(G):
-    options = {
-      'node_color' : 'red',
-      'node_size'  : 100,
-      'edge_color' : 'tab:grey',
-      'with_labels': True
-    }
-    plt.figure()
-    nx.draw(G, **options)
-    plt.show()
 
 def solvePractical(num_vertices, edge_list):
     G = nx.Graph()

@@ -2,8 +2,8 @@
 
 ## Instructions d'installations
 
-Afin de faciliter l'utilisation et la visualisation des résultats plusieurs packages supplémentaires sont nécessaires.
-Il vous faudra tout d'abord python et les différends packages avec ```pip install ``` ou ```pip3 install```
+Afin de faciliter l'utilisation et la visualisation des résultats, plusieurs packages supplémentaires sont nécessaires.
+Il vous faudra tout d'abord installer python et les différends packages avec ```pip install ``` ou ```pip3 install```
 
 ```
 pip3 install numpy
@@ -28,11 +28,11 @@ La partie théorique est éxecuté avec le ```drone.py```. Cela représente le p
 ```
 python drone.py
 ```
-Une fois le script lancé, on vous demandera de mettre un pays, une ville ainsi qu'un quartier. Si vous ne voulez pas rentrer de quartier, appuyez simplement sur ```enter``` lorsque le programme vous demandera un quartier.
+Une fois le script lancé, on vous demandera de mettre un pays, une ville ainsi qu'un quartier. Si vous ne voulez pas rentrer de quartier, appuyez simplement sur ```entrer``` lorsque le programme vous demandera un quartier.
 Si jamais le localisation que vous avez entré n'est pas valid, le programme s'arretera et il faudra le relancer si vous voulez réessayer avec une ville.
-En sortie du programme, vous aurez un graphe qui représentera la ville que vous avez indiqué ainsi les la liste des sommets à parcourir dans l'ordre afin d'avoir un cycle eulérien.
+En sortie du programme, vous aurez la liste des sommets à parcourir dans l'ordre afin d'avoir un cycle eulérien.
 
-La partie pratique est éxecuté avec le script ```deneiger.py```, Cela représente le parcours de la déneigeuse. Pour lancer ce script, il faut lacer la commande suivante :
+La partie pratique est éxecuté avec le script ```deneiger.py```. Cela représente le parcours de la déneigeuse. Pour lancer ce script, il faut lancer la commande suivante :
 ```
 python deneiger.py
 ```

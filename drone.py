@@ -20,6 +20,8 @@ try:
 except:
     print( "Ce lieu n'existe pas !")
     sys.exit(0)
+
+
 nodes = list(G.nodes)
 edges = list(G.edges(data=True))
 
